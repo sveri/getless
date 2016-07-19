@@ -6,8 +6,12 @@
 
 <title>Abnehmen nach der RCM Methode.</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="description" content="Jetzt abnehmen und glücklich werden. Mit dem RCM Programm gesund werden.Auch du kannst es schaffen." layout:fragment="meta-desc"/>
-<meta name="keywords" content="RCM, Abnehmen, Zucker, Fructose, Schlank, Glücklich, Erhnährungsplan, Gewichtstagebuch" layout:fragment="meta-keywords" />
+<meta name="description"
+	content="Jetzt abnehmen und glücklich werden. Mit dem RCM Programm gesund werden.Auch du kannst es schaffen."
+	layout:fragment="meta-desc" />
+<meta name="keywords"
+	content="RCM, Abnehmen, Zucker, Fructose, Schlank, Glücklich, Erhnährungsplan, Gewichtstagebuch"
+	layout:fragment="meta-keywords" />
 <link href="../../css/boostrap.min.css"
 	th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="screen" />
 <link href="../../css/layout.css" th:href="@{/css/layout.css}"
@@ -28,8 +32,13 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">RCM - Abnehmen und Glücklich sein</a>
+				<a class="navbar-brand" href="/">RCM - Abnehmen und Glücklich
+					sein</a>
 			</div>
+
+			<ul class="nav navbar-nav" id="header-menu-wrapper">
+				<li field="link-list" ><a th:href="@{/diary/diet}">Ernährungstagebuch</a></li> 
+			</ul>
 
 
 			<div sec:authorize="!isAnonymous()" class="pull-right">
@@ -39,7 +48,7 @@
 						<li><a href="/">Menu</a>
 							<ul>
 								<li><a th:href="@{/user/edit/0}">Profil</a></li>
-								<li><a th:href="@{/logout}">Log out</a></li>
+								<li><a th:href="@{/logout}">Ausloggen</a></li>
 							</ul></li>
 					</ul>
 				</nav>
@@ -89,8 +98,8 @@
 
 	<footer class="footer">
 		<div class="container">
-			<a href="/about">About</a>
-			<a href="/dataprivacypolicy">Data Privacy Policy</a>
+			<a href="/about">About</a> <a href="/dataprivacypolicy">Data
+				Privacy Policy</a>
 		</div>
 	</footer>
 
