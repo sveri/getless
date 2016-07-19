@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="search">
+
+	<div class="row">
+		<div class="col-md-10">
+			<div style="margin: 20px;">
+				<form action="/food" method="get" class="form-inline">
+					<div class="form-group">
+<!-- 						<input type="hidden" name="size" th:value="${size}" /> -->
+<!-- 						<input type="hidden" name="page" th:value="${number}" /> -->
+						
+						<input type="text" placeholder="Produktsuche" name="search-for" class="form-control"
+							style="width: 700px;" />
+						<button type="submit" class="btn btn-default">Suchen</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+
+<!-- 		<div class="col-md-2" style="padding-top: 25px;"> -->
+<!-- 			<a href="#pagination" class="pull-right">Pagination</a> -->
+<!-- 		</div> -->
+
+	</div>
+</div>
+</html>

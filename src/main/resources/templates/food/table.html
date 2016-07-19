@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="table">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+<!-- 				<th>Visited</th> -->
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="product : ${products}">
+				<td><a th:href="@{/food/product/{path}(path=${product.id})}" 
+					th:text="${#strings.abbreviate(product.name, 140)}">Name</a></td>
+<!-- 				th:href="/food/" -->
+<!-- 				<td th:text="${#dates.format(history.visitedAt, 'dd.MM.yyyy'':''H:mm')}">VisitedAt</td> -->
+			</tr>
+		</tbody>
+	</table>
+</div>
+</html>
