@@ -8,19 +8,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import de.sveri.getless.entity.mongodb.ProductRepository;
+import de.sveri.getless.off.OffConnector;
 
 @Controller
 public class Food {
 	
+//	@Autowired
+//	ProductRepository productRepository;
+	
 	@Autowired
-	ProductRepository productRepository;
+	OffConnector offConnector;
 	
 	@RequestMapping(value = "/food/product/{id}")
 	public ModelAndView foodDetail(@PathVariable String id){
 		ModelAndView mav = new ModelAndView("food/detail");
 		
-		mav.addObject("product", productRepository.findOne(id));
+		mav.addObject("product", offConnector.byId(id).getProduct());
 		return mav;
 	}
 	
@@ -29,7 +32,7 @@ public class Food {
 		ModelAndView mav = new ModelAndView("food/index");
 		
 		if(StringUtils.isNotEmpty(searchFor)){
-			mav.addObject("products", productRepository.findByNameLike(searchFor));
+			mav.addObject("products", offConnector.searchProduct(searchFor).getProducts());
 		}
 		return mav;
 	}

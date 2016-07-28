@@ -1,4 +1,8 @@
 app:
+  offf:
+    username: "off"
+    password: "off"
+    url: http://world.openfoodfacts.net/
   jwt:
     secretKey: ${random.value}
   url: http://localhost:8080

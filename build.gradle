@@ -23,6 +23,9 @@ targetCompatibility = 1.8
 
 repositories {
 	mavenCentral()
+	maven {
+      url "http://maven.restlet.org"
+   }
 }
 
 
@@ -43,6 +46,9 @@ dependencies {
 	compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.6.0'
 	
 	compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+	
+	compile('org.restlet.jse:org.restlet:2.3.7')
+	compile('org.restlet.jse:org.restlet.ext.jackson:2.3.7')
 
 	
 	runtime('com.h2database:h2')
