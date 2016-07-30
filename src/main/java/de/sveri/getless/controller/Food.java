@@ -13,9 +13,6 @@ import de.sveri.getless.off.OffConnector;
 @Controller
 public class Food {
 	
-//	@Autowired
-//	ProductRepository productRepository;
-	
 	@Autowired
 	OffConnector offConnector;
 	
@@ -29,6 +26,16 @@ public class Food {
 	
 	@RequestMapping(value = "/food")
 	public ModelAndView foodIndex(@RequestParam(name = "search-for", required = false, defaultValue = "") String searchFor){
+		ModelAndView mav = new ModelAndView("food/index");
+		
+		if(StringUtils.isNotEmpty(searchFor)){
+			mav.addObject("products", offConnector.searchProduct(searchFor).getProducts());
+		}
+		return mav;
+	}
+	
+	@RequestMapping(value = "/food/pick")
+	public ModelAndView pick(@RequestParam(name = "search-for", required = false, defaultValue = "") String searchFor){
 		ModelAndView mav = new ModelAndView("food/index");
 		
 		if(StringUtils.isNotEmpty(searchFor)){

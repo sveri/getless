@@ -16,24 +16,24 @@ import de.sveri.getless.Application;
 
 
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(Application.class)
-@WebIntegrationTest(value = "server.port=9099")
-public class ProductRepositoryTest {
-	
-	@Autowired
-	ProductRepository productRepository;
-	
-	@Test
-	public void findFirstProduct() throws Exception {
-		Product product = productRepository.findOne("00000000000");	
-		assertEquals("2013-09-09", product.getLastEditDatesTags().get(0));
-	}
-	
-	@Test
-	public void findByName() throws Exception {
-		List<Product> products = productRepository.findByNameLike("Filet");
-		assertTrue(products.size() > 0);
-	}
-
-}
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@SpringApplicationConfiguration(Application.class)
+//@WebIntegrationTest(value = "server.port=9099")
+//public class ProductRepositoryTest {
+//	
+//	@Autowired
+//	ProductRepository productRepository;
+//	
+//	@Test
+//	public void findFirstProduct() throws Exception {
+//		Product product = productRepository.findOne("00000000000");	
+//		assertEquals("2013-09-09", product.getLastEditDatesTags().get(0));
+//	}
+//	
+//	@Test
+//	public void findByName() throws Exception {
+//		List<Product> products = productRepository.findByNameLike("Filet");
+//		assertTrue(products.size() > 0);
+//	}
+//
+//}

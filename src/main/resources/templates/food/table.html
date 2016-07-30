@@ -7,15 +7,15 @@
 		<thead>
 			<tr>
 				<th>Name</th>
-<!-- 				<th>Visited</th> -->
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="product : ${products}">
 				<td><a th:href="@{/food/product/{path}(path=${product.id})}" 
 					th:text="${#strings.abbreviate(product.name, 140)}">Name</a></td>
-<!-- 				th:href="/food/" -->
-<!-- 				<td th:text="${#dates.format(history.visitedAt, 'dd.MM.yyyy'':''H:mm')}">VisitedAt</td> -->
+				<td><a th:href="@{/diary/diet/product/add/{id}(id=${product.id})}" 
+					th:text="Hinzufügen" class="btn btn-primary">Hinzufügen</a></td>
 			</tr>
 		</tbody>
 	</table>

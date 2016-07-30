@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org" layout:decorator="layout">
+
+<head>
+<title>Ernährungstagebuch</title>
+<meta layout:fragment="meta-desc"
+	content="Ernährungstagebuch. Nimm hier deine täglichen Essgewohnheiten auf." />
+</head>
+
+<body>
+	<div layout:fragment="container">
+
+		<h3>Frühstück hinzufügen</h3>
+		
+		<a th:href="@{/food}" class="btn btn-primary">Produkt wählen</a>
+		
+		<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="product : ${products}">
+				<td><a th:href="@{/food/product/{path}(path=${product.id})}" 
+					th:text="${#strings.abbreviate(product.name, 140)}">Name</a></td>
+				<td><a th:href="@{/diary/diet/product/add/{id}(id=${product.id})}" 
+					th:text="Hinzufügen" class="btn btn-primary">Hinzufügen</a></td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	</div>
+</body>
+</html>

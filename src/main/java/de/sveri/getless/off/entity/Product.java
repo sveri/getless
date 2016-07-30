@@ -14,5 +14,8 @@ public class Product {
 	
 	@JsonProperty(value = "product_name")
 	private String name;
+	
+	@JsonProperty(value = "image_small_url")
+	private String imageSmallUrl;
 
 }
