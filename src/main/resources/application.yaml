@@ -2,7 +2,7 @@ app:
   offf:
     username: "off"
     password: "off"
-    url: http://world.openfoodfacts.net/
+    url: http://de.world.openfoodfacts.net/
   jwt:
     secretKey: ${random.value}
   url: http://localhost:8080
@@ -18,15 +18,15 @@ spring:
   thymeleaf:
     mode: HTML5
     cache: false
-#  datasource:
-#    url: jdbc:postgresql://localhost:5432/foobar
-#    username: postgres
-#    password: postgres
-#    driver-class-name: org.postgresql.Driver
-#    jpa:
-#      show-sql: "true"
-#      hibernate:
-#        ddl-auto: none
+  datasource:
+    url: jdbc:postgresql://localhost:5432/getless
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    jpa:
+      show-sql: "true"
+      hibernate:
+        ddl-auto: create
   mail:
     host: localhost
     default-encoding: UTF-8

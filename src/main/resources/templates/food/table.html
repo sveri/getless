@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <div th:fragment="table">
 	<table class="table">
@@ -8,14 +7,16 @@
 			<tr>
 				<th>Name</th>
 				<th></th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="product : ${products}">
-				<td><a th:href="@{/food/product/{path}(path=${product.id})}" 
-					th:text="${#strings.abbreviate(product.name, 140)}">Name</a></td>
-				<td><a th:href="@{/diary/diet/product/add/{id}(id=${product.id})}" 
-					th:text="Hinzufügen" class="btn btn-primary">Hinzufügen</a></td>
+				<td><a th:href="@{/food/product/{path}(path=${product.id})}"
+					th:text="${#strings.abbreviate(product.name, 140)}">Name</a></td> 
+					<td><img th:alt="${product.name}" th:src="${product.imageThumbUrl}" /></td>
+				<td><a th:href="@{/diary/diet/product/add/{id}(id=${product.id})}" th:text="Hinzufügen"
+					class="btn btn-primary">Hinzufügen</a></td>
 			</tr>
 		</tbody>
 	</table>

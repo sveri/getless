@@ -11,9 +11,10 @@
 <body>
 	<div layout:fragment="container">
 
-		<h3>Frühstück hinzufügen</h3>
+		<h3>Frühstück</h3>
 		
 		<a th:href="@{/food}" class="btn btn-primary">Produkt wählen</a>
+		
 		
 		<table class="table">
 		<thead>
@@ -26,8 +27,7 @@
 			<tr th:each="product : ${products}">
 				<td><a th:href="@{/food/product/{path}(path=${product.id})}" 
 					th:text="${#strings.abbreviate(product.name, 140)}">Name</a></td>
-				<td><a th:href="@{/diary/diet/product/add/{id}(id=${product.id})}" 
-					th:text="Hinzufügen" class="btn btn-primary">Hinzufügen</a></td>
+				<td th:text="${product.ingredients}">Inhaltsstoffe</td>
 			</tr>
 		</tbody>
 	</table>
