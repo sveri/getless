@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import de.sveri.getless.entity.Meal;
 import de.sveri.getless.off.OffConnector;
 import de.sveri.getless.off.entity.Product;
 import de.sveri.getless.session.AddFoodWorkflow;
@@ -28,7 +30,7 @@ public class Diary {
 	public String addDiary(@PathVariable String type, Model model, HttpSession session) {
 		switch (type) {
 		case "breakfast":
-			model.addAttribute("type", "Frühstück");
+			model.addAttribute("type", "FrÃ¼hstÃ¼ck");
 			break;
 
 		default:
@@ -39,6 +41,16 @@ public class Diary {
 		model.addAttribute("products", breakfastWorkFlow.getProducts());
 		
 		return "diary/add";
+	}
+
+	@RequestMapping(value = "/diary/diet/meal/add", method = RequestMethod.POST)
+	public String saveDiary(HttpSession session) {
+		AddFoodWorkflow workFlow = SessionHelper.getBreakfastWorkFlow(session);
+		
+		Meal meal = new Meal();
+//		meal.setAmount(100);
+
+		return "redirect:/diary/diet/add/" + workFlow.getMealType().toString();
 	}
 
 	@RequestMapping(value = "/diary/diet/product/add/{id}")

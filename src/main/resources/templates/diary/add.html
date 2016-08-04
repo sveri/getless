@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	xmlns:th="http://www.thymeleaf.org" layout:decorator="layout">
 
 <head>
@@ -12,25 +13,58 @@
 	<div layout:fragment="container">
 
 		<h3>Frühstück</h3>
-		
+
 		<a th:href="@{/food}" class="btn btn-primary">Produkt wählen</a>
-		
-		
-		<table class="table">
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="product : ${products}">
-				<td><a th:href="@{/food/product/{path}(path=${product.id})}" 
-					th:text="${#strings.abbreviate(product.name, 140)}">Name</a></td>
-				<td th:text="${product.ingredients}">Inhaltsstoffe</td>
-			</tr>
-		</tbody>
-	</table>
+
+		<form action="#" th:action="@{/diary/diet/meal/add}"
+			th:object="${AddMealForm}" method="post">
+
+			<table class="table table-bordered table-hover table-striped">
+				<thead>
+					<tr>
+						<th>Select</th>
+						<th>Client ID</th>
+						<th>IP Addresss</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="currentClient, stat : ${wrapper.clientList}">
+						<td><input type="checkbox"
+							th:name="|clientList[${stat.index}].clientID|"
+							th:value="${currentClient.getClientID()}"
+							th:checked="${currentClient.selected}" /></td>
+						<td th:text="${currentClient.getClientID()}"></td>
+						<td th:text="${currentClient.getIpAddress()}"></td>
+						<td th:text="${currentClient.getDescription()}"></td>
+					</tr>
+				</tbody>
+			</table>
+			<button type="submit" value="submit" class="btn btn-success">Submit</button>
+		</form>
+
+
+		<!-- 		<form th:action="@{/}" th:object="${user}" action="/user/reset-password" method="post"> -->
+		<!-- 		<table class="table"> -->
+		<!-- 			<thead> -->
+		<!-- 				<tr> -->
+		<!-- 					<th width="200px">Name</th> -->
+		<!-- 					<th width="100px">Menge</th> -->
+		<!-- 					<th>Inhaltsstoffe</th> -->
+		<!-- 				</tr> -->
+		<!-- 			</thead> -->
+		<!-- 			<tbody> -->
+		<!-- 				<tr th:each="product : ${products}"> -->
+		<!-- 					<td><a th:href="@{/food/product/{path}(path=${product.id})}" -->
+		<!-- 							th:text="${#strings.abbreviate(product.name, 140)}">Name</a></td> -->
+		<!-- 					<td><input type="text" class="form form-control"/></td> -->
+		<!-- 					<td th:text="${product.ingredients}">Inhaltsstoffe</td> -->
+		<!-- 				</tr> -->
+		<!-- 			</tbody> -->
+		<!-- 		</table> -->
+
+
+		<!-- 		<a th:href="@{/" -->
 
 
 	</div>

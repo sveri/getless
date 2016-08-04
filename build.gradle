@@ -45,7 +45,7 @@ dependencies {
 	
 	compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.6.0'
 	
-	compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+	//compile("org.springframework.boot:spring-boot-starter-data-mongodb")
 	
 	compile('org.restlet.jse:org.restlet:2.3.7')
 	compile('org.restlet.jse:org.restlet.ext.jackson:2.3.7')
