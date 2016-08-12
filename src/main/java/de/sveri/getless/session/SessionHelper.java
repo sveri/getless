@@ -6,17 +6,17 @@ public class SessionHelper {
 
 	public static final String ADD_FOOD_WORKFLOW = "addFoodWorkflow";
 	
-	public static void addBreakfestWorkflowIfNull(HttpSession session){
+	public static void addFoodWorkflowIfNull(HttpSession session){
 		if(session.getAttribute(ADD_FOOD_WORKFLOW) == null){
-			session.setAttribute(ADD_FOOD_WORKFLOW, new AddBreakfastWorkflow());
+			session.setAttribute(ADD_FOOD_WORKFLOW, new AddBreakfastForm());
 		}
 	}
 	
-	public static AddBreakfastWorkflow getBreakfastWorkFlow(HttpSession session){
+	public static AddBreakfastForm getFoodWorkflow (HttpSession session){
 		if(session.getAttribute(ADD_FOOD_WORKFLOW) != null){
-			return (AddBreakfastWorkflow) session.getAttribute(ADD_FOOD_WORKFLOW);
+			return (AddBreakfastForm) session.getAttribute(ADD_FOOD_WORKFLOW);
 		}
-		return new AddBreakfastWorkflow();
+		return new AddBreakfastForm();
 	}
 
 }

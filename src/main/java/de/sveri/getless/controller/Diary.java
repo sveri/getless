@@ -37,15 +37,16 @@ public class Diary {
 			break;
 		}
 
-		AddFoodWorkflow breakfastWorkFlow = SessionHelper.getBreakfastWorkFlow(session);
-		model.addAttribute("products", breakfastWorkFlow.getProducts());
+//		AddFoodWorkflow breakfastWorkFlow = SessionHelper.getBreakfastWorkFlow(session);
+//		model.addAttribute("products", breakfastWorkFlow.getProducts());
+//		model.add
 		
 		return "diary/add";
 	}
 
 	@RequestMapping(value = "/diary/diet/meal/add", method = RequestMethod.POST)
 	public String saveDiary(HttpSession session) {
-		AddFoodWorkflow workFlow = SessionHelper.getBreakfastWorkFlow(session);
+		AddFoodWorkflow workFlow = SessionHelper.getFoodWorkflow(session);
 		
 		Meal meal = new Meal();
 //		meal.setAmount(100);
@@ -55,11 +56,11 @@ public class Diary {
 
 	@RequestMapping(value = "/diary/diet/product/add/{id}")
 	public String addProduct(@PathVariable String id, Model model, HttpSession session) {
-		SessionHelper.addBreakfestWorkflowIfNull(session);
+		SessionHelper.addFoodWorkflowIfNull(session);
 		Product product = offConnector.byId(id).getProduct();
 		((AddFoodWorkflow) session.getAttribute(SessionHelper.ADD_FOOD_WORKFLOW)).addProduct(product);
 
-		AddFoodWorkflow breakfastWorkFlow = SessionHelper.getBreakfastWorkFlow(session);
+		AddFoodWorkflow breakfastWorkFlow = SessionHelper.getFoodWorkflow(session);
 
 		return "redirect:/diary/diet/add/" + breakfastWorkFlow.getMealType().toString();
 	}

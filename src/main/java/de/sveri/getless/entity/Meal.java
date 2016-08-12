@@ -30,8 +30,5 @@ public class Meal {
 	@NotNull
 	@OneToMany
 	private List<GLProduct> products;
-	
-	@NotNull
-	private UnitType unitType;
 
 }

@@ -21,5 +21,8 @@ public class GLProduct {
 	
 	@NotNull
 	private int amount;
+	
+	@NotNull
+	private UnitType unitType;
 
 }
