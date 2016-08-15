@@ -53,10 +53,10 @@ public class Diary {
 	}
 
 	@RequestMapping(value = "/diary/diet/meal/add", method = RequestMethod.POST)
-	public String saveDiary(MealForm form, HttpSession session) {
+	public String saveDiary(MealForm meal, HttpSession session) {
 //		AddFoodWorkflow workFlow = SessionHelper.getFoodWorkflow(session);
 		
-		Meal meal = new Meal();
+//		Meal meal = new Meal();
 //		meal.setAmount(100);
 
 		return "redirect:/diary/diet/add/BREAKFAST";
