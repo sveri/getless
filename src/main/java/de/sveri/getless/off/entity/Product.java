@@ -23,7 +23,6 @@ public class Product {
 	@JsonProperty(value = "image_thumb_url")
 	private String imageThumbUrl;
 	
-//	@JsonProperty(value = "image_thumb_url")
 	private String origins;
 	
 	private List<Ingredient> ingredients;
