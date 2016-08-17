@@ -16,6 +16,7 @@
 		<a th:href="@{/food}" class="btn btn-primary">Produkt wählen</a>
 
 		<form th:action="@{/diary/diet/meal/add}" th:object="${meal}" method="post">
+			<input type="hidden" th:name="id" th:value="${meal.id}" />
 			<input type="hidden" th:name="mealType" th:value="${meal.mealType}" />
 
 
@@ -37,6 +38,9 @@
 				</thead>
 				<tbody>
 					<tr th:each="product, stat : ${meal.formProducts}">
+											<td><input type="text"
+													th:name="|product[${stat.index}].product.id|"
+													th:value="${product.product.id}"/></td>
 						<td th:text="${product.product.name}"></td>
 						<td th:text="${product.amount}"></td>
 						<!-- 						<td th:text="${product.unitType}"></td> -->
